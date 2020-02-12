@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  db:
+    env_file: ./.env
+    image: postgres
+    restart: always
+    volumes:
+      - dbdata:/var/lib/postgresql/data/
+  backend:
+    build: ./backend
+    depends_on:
+      - db
+      - frontend
+    env_file: ./.env
+    links:
+      - db:db
+    ports:
+      - "8000:8000"
+    restart: always
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./frontend:/frontend
+      - ./backend:/backend
+  frontend:
+    build: ./frontend
+    ports:
+      - "9005:9005"
+    restart: always
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./frontend:/frontend
+      - ./backend:/backend
+
+volumes:
+  dbdata:

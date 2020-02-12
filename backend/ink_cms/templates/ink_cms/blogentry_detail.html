@@ -1,0 +1,12 @@
+{% extends "ink_cms/frontend.html" %}
+
+{% block title %}{{ object }}{% endblock %}
+
+{% block content %}
+{{ block.super }}
+{{ object_data|json_script:"object_data" }}
+{% endblock %}
+
+{% block meta %}
+<meta property="og:title" content="{{ object }}" />
+{% endblock %}

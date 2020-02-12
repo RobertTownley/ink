@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% block meta %}{% endblock %}
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but this page doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    {% block content %}
+    {{ frontend_context|json_script:"frontend_context" }}
+    <div id="app" style="text-align: center;">&nbsp;</div>
+    {% endblock %}
+    {% block footer %}
+    {% if INK_DEV %}
+      {% include "ink_cms/dev.html" %}
+    {% else %}
+      <link rel="stylesheet" type="text/css" href="{% static "ink_cms/dist/assets/css/app.css" %}">
+      <script src="{% static "ink_cms/dist/assets/js/app.js" %}"></script>
+    {% endif %}
+    {% endblock %}
+  </body>
+</html>

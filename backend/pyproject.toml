@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "ink_cms"
+version = "0.2.0"
+description = "A headless CMS for the Django Admin"
+authors = ["Robert Townley"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+django = "^3.0.2"
+psycopg2 = "^2.8.4"
+easy-thumbnails = "^2.7"
+djangorestframework = "^3.11.0"
+
+[tool.poetry.dev-dependencies]
+django-extensions = "^2.2.6"
+django-webpack-loader = "^0.6.0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

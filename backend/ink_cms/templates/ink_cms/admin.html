@@ -1,0 +1,23 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block stylesheet %}{% static "ink_cms/admin/css/modified_base.css" %}{% endblock %}
+{% block extrastyle %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static "ink_cms/dist/assets/css/app.css" %}">
+{% endblock %}
+
+{% block content_title %}{% endblock %}
+{% block content %}
+<div id="app" style="text-align: center;">Please wait. CMS is loading...</div>
+{% endblock %}
+
+{% block footer %}
+  {{ block.super }}
+  {% if INK_DEV %}
+    {% include "ink_cms/dev.html" %}
+  {% else %}
+    <script src="{% static "ink_cms/dist/assets/js/app.js" %}"></script>
+  {% endif %}
+{% endblock %}
+
