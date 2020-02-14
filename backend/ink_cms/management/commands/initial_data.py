@@ -8,10 +8,10 @@ from ink_cms.config import INK_CONFIG
 
 class Command(BaseCommand):
     def handle(self, *args, **kwargs):
-        run(*args, **kwargs)
+        run()
 
 
-def run(*args, **kwargs):
+def run():
     if not INK_CONFIG["DEV"]:
         msg = (
             "Refusing to create initial data for Ink outside of development. "

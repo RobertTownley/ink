@@ -21,8 +21,8 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - ./frontend:/frontend
       - ./backend:/backend
+      - ./frontend:/frontend
   frontend:
     build: ./frontend
     ports:
@@ -31,8 +31,8 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - ./frontend:/frontend
       - ./backend:/backend
+      - ./frontend:/frontend
 
 volumes:
   dbdata:
