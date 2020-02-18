@@ -191,7 +191,9 @@ sudo chown -R ${USER}:${USER} *
 ```
 
 The Django project is now fully functional, but needs to be configured with Ink
-settings. Open up `mysite/settings.py` and edit/add the following values:
+settings. Change directories into `backend` and then open up `backend/settings.py`
+(full file path is `~/Projects/mysite/backend/backend/settings.py`) and edit/add
+the following values:
 ```
 # Place these values directly after django's internal apps
 INSTALLED_APPS = [
@@ -256,8 +258,8 @@ If you start up your local containers, you should now be able to see the Django
 project running in your web browser. Run `docker-compose up` and visit
 `http://localhost:8000/admin/` and confirm that you're presented with a login page.
 
-With the container still running, create a superuser that will allow you to log in.
-Run the following command, and fill in the associated prompts:
+With the container still running in another window, create a superuser that will enable
+you to log in. Run the following command, and fill in the associated prompts:
 ```
 docker-compose exec backend python manage.py createsuperuser
 ```
