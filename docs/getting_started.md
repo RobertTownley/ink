@@ -255,10 +255,11 @@ if settings.DEBUG:
 ```
 
 If you start up your local containers, you should now be able to see the Django
-project running in your web browser. Run `docker-compose up` and visit
+project running in your web browser. Run `docker-compose down` to remove build
+artifacts, and then run `docker-compose up`. Once it's done, visit
 `http://localhost:8000/admin/` and confirm that you're presented with a login page.
 
-With the container still running in another window, create a superuser that will enable
+With that process still running in another window, create a superuser that will enable
 you to log in. Run the following command, and fill in the associated prompts:
 ```
 docker-compose exec backend python manage.py createsuperuser
